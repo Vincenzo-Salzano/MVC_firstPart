@@ -1,0 +1,40 @@
+﻿<!--This is the Create View. Here we Create a new category and this View is opened by clicking the "New Category!" button-->
+<!--Because we create a new Category, obviously the model is the Category class-->
+@model Category
+
+<form method="post">
+	<!--border = creates a border, p-3 creates a medium dimension padding (1 min 5 max), mt-4 = margin top 4->
+	<div class="border p-3 mt-4">
+		<!--pb-2 padding bottom 2, insert an internal padding space below-->
+		<div class="row pb-2"> 
+			<h2 class="text-secondary">Create new Category</h2>
+			<hr />
+		</div>		
+		<div class="mb-3 row p-3"> <!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+			<label asp-for="Name" class="p-0 pb-1"></label> <!--Tag Helper asp-for="Name" which takes the property of the model-->
+			<input asp-for="Name" class="form-control" />
+			<span asp-validation-for="Name" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property Name are not respected-->
+		</div>
+		<div class="mb-3 row p-3"> <!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+			<label asp-for="DisplayOrder" class="p-0 pb-1">Display Order</label>
+			<input asp-for="DisplayOrder" class="form-control" />
+			<span asp-validation-for="DisplayOrder" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+		</div>		
+		<div class="row">
+		<!--with col-md-3 if we are using medium or large screens, the button shrinks-->
+		 <div class="col-6 col-md-3"> 
+			<button type="submit" class="btn btn-primary form-control">Create</button>
+		  </div>
+		  <div class="col-6 col-md-3"> 
+			<a asp-controller="Category" asp-action="Index" class="btn btn-light form-control">Back</a>
+		  </div>		
+	     </div>
+     </div>	
+</form>
+
+<!--The following section Scripts is made to implement Client side validation, by using the JS inside /Shared/_ValidationScriptsPartial.cshtml-->
+			@section Scripts{
+				@{
+					<partial name="_ValidationScriptsPartial" />
+				}
+			}

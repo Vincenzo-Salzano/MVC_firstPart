@@ -1,0 +1,34 @@
+﻿@page
+@model Project_Razor_Temp.Pages.Categories.IndexModel
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 pb-3"><h1>Categories</h1></div>
+        <div class="col-4 mt-2 text-end"><a class="btn btn-primary" asp-page="/categories/create">New Category!</a></div>
+        <div> 
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Display Order</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var obj in Model.CategoryList){
+                        <tr>
+                            <td>@obj.Name</td>
+                            <td>@obj.DisplayOrder</td>
+                            <td>
+                                <a asp-page="/categories/edit" asp-route-id="@obj.Id" class="btn btn-info w-75">Edit</a>
+                            </td>
+                            <td>
+                                <a asp-page="/categories/delete" asp-route-id="@obj.Id" class="btn btn-danger w-75">Delete</a>
+                            </td>
+                        </tr>
+                    } 
+                </tbody>
+            </table>
+        </div>    
+    </div>  
+</div>

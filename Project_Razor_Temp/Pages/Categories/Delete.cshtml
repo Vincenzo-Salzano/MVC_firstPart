@@ -1,0 +1,33 @@
+﻿@page
+@model Project_Razor_Temp.Pages.Categories.DeleteModel
+
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pb-2"><h1>Delete a Category</h1></div><hr />
+            <div class="col-12 pb-1 pt-4 text-start">
+                <label asp-for="Category.Name"></label>
+            </div>
+            <div class="col-12">
+                <input asp-for="Category.Name" disabled class="form-control" />
+            </div>
+            <div class="col-12 pb-1 pt-4 text-start">
+                <label asp-for="Category.DisplayOrder"></label>
+            </div>
+            <div class="col-12">
+                <input asp-for="Category.DisplayOrder" disabled class="form-control" />
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 mt-3">
+                    <button type="submit" class="btn btn-secondary w-75">Delete</button>   <!--submit è collegato al metodo OnPost()-->
+                </div>
+                <div class="col-12 col-sm-6 mt-3">
+                    <a asp-page="/categories/index" class="btn btn-outline-secondary w-75">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+

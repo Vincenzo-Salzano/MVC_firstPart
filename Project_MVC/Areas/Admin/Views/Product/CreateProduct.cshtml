@@ -1,0 +1,70 @@
+﻿@model Product
+
+<form method="post">
+	<!--border = creates a border, p-3 creates a medium dimension padding (1 min 5 max), mt-4 = margin top 4->
+	<div class="border p-3 mt-4">
+		<!--pb-2 padding bottom 2, insert an internal padding space below-->
+	<div class="row pb-2">
+		<h2 class="text-secondary">Create new Product</h2>
+		<hr />
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="Title" class="p-0 pb-1"></label> <!--Tag Helper asp-for="Name" which takes the property of the model-->
+		<input asp-for="Title" class="form-control" />
+		<span asp-validation-for="Title" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property Ttle are not respected-->
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="Author" class="p-0 pb-1">Author</label>
+		<input asp-for="Author" class="form-control" />
+		<span asp-validation-for="Author" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="Description" class="p-0 pb-1">Description</label>
+		<textarea asp-for="Description" class="form-control h-100" ></textarea>
+		<span asp-validation-for="Description" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="ISBN" class="p-0 pb-1">ISBN</label>
+		<input asp-for="ISBN" class="form-control h-100" />
+		<span asp-validation-for="ISBN" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="ListPrice" class="p-0 pb-1"></label>
+		<input asp-for="ListPrice" class="form-control h-100" />
+		<span asp-validation-for="ListPrice" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="ListPrice50" class="p-0 pb-1"></label>
+		<input asp-for="ListPrice50" class="form-control h-100" />
+		<span asp-validation-for="ListPrice50" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<label asp-for="ListPrice100" class="p-0 pb-1"></label>
+		<input asp-for="ListPrice100" class="form-control h-100" />
+		<span asp-validation-for="ListPrice100" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
+	<div class="row">
+		<!--with col-md-3 if we are using medium or large screens, the button shrinks-->
+		<div class="col-6 col-md-3">
+			<button type="submit" class="btn btn-primary form-control">Create</button>
+		</div>
+		<div class="col-6 col-md-3">
+			<a asp-controller="Product" asp-action="Index" class="btn btn-light form-control">Back</a>
+		</div>
+	</div>
+	</div>
+</form>
+
+<!--The following section Scripts is made to implement Client side validation, by using the JS inside /Shared/_ValidationScriptsPartial.cshtml-->
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

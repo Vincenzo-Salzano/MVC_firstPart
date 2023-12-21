@@ -1,0 +1,47 @@
+﻿@page
+@model Project_Razor_Temp.Pages.Categories.CreateModel
+
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pb-2"><h1>Create a New Category</h1></div><hr />
+            <div class="col-12 pb-1 pt-4 text-start">
+                <label asp-for="Category.Name"></label>
+            </div>
+            <div class="col-12">
+                <input asp-for="Category.Name" class="form-control" />
+                <span asp-validation-for="Category.Name" class="text-danger"></span>
+            </div>
+            <div class="col-12 pb-1 pt-4 text-start">
+                <label asp-for="Category.DisplayOrder"></label>
+            </div>
+            <div class="col-12">
+                <input asp-for="Category.DisplayOrder" class="form-control" />
+                <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 mt-3">
+                    <button type="submit" class="btn btn-secondary w-75">Create</button>
+                </div>
+                <div class="col-12 col-sm-6 mt-3">
+                    <a asp-page="/categories/index" class="btn btn-outline-secondary w-75">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+
+
+

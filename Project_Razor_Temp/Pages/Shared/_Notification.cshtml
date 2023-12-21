@@ -1,0 +1,25 @@
+﻿<!--Here we place the razor syntax for the TempData message-->
+@if (TempData["success"] != null)
+{
+             <!--Here we set up the code for the toastr notifications!-->
+             <!--Firstly, we use the jquery-->
+             <script src="~/lib/jquery/dist/jquery.min.js"></script>
+             <!--Then we paste the link from toastr-->
+             <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+             <!--Now we set up the notification-->
+             <script type="text/javascript">
+                     toastr.success('@TempData["success"]')
+             </script>
+}
+
+@if (TempData["error"] != null)
+{               
+                    <!--Same code as TempData["success"]-->
+                    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+                    <div class="text-success">@TempData["error"]</div>
+                    <!--Only difference here in toastr.error-->
+                    <script type="text/javascript">   
+                         toastr.error('@TempData["error"]')     
+                    </script>
+}
