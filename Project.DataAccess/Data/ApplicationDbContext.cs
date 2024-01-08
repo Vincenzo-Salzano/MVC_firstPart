@@ -35,6 +35,7 @@ namespace Project.DataAccess.Data
 						ListPrice100 = 0,
 						Description = "None",
 						CategoryId = 1,
+						ImageUrl = ""
 					}
 			); 
 			// After this, remember to proceed with migration ad update!

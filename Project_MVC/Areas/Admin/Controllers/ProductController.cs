@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.DataAccess.Data;
 using Project.DataAccess.Repository.IRepository;
 using Project.Models;
@@ -21,7 +22,18 @@ namespace Project_MVC.Areas.Admin.Controllers
 
         public IActionResult CreateProduct()
         {
-            return View();
+			// Using an item of the class SelectListItem. This will be populated with key-values of the Categories. After this, we will pass the list
+			// in the View CreateProduct in a listbox, by using the ViewBag of Projections EF Core.
+			IEnumerable<SelectListItem> CategoryList = _context.Category.GetAll().Select(u => new SelectListItem
+			{
+				// Text and Value are the two string type parameters of the ctor of SelectListItem. We pass them as name and Id of Category EF item
+				Text = u.Name,
+				Value = u.Id.ToString(),
+			});
+			// Now we use the ViewBag to pass the list to the view
+			ViewBag.CategoryList = CategoryList;
+			// Check the HTML code in the View CreateProduct
+			return View();
         }
 
         [HttpPost]

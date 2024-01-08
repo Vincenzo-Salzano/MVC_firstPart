@@ -50,6 +50,15 @@
 		<input asp-for="ListPrice100" class="form-control h-100" />
 		<span asp-validation-for="ListPrice100" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
 	</div>
+	<div class="mb-3 row p-3">
+		<!--row creates a row in the bootstrap 12 columns division and gives responsiveness to the page-->
+		<!--form-select is like a listbox-->
+		<select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select h-100">
+			<option disable seleted>--Select Category--</option>
+		</select>
+		<label asp-for="CategoryId" class="p-0 pb-1"></label>
+		<span asp-validation-for="CategoryId" class="text-danger"></span> <!--Tag helper made to show an error message if the Data annotations for the property DisplayOrder are not respected-->
+	</div>
 	<div class="row">
 		<!--with col-md-3 if we are using medium or large screens, the button shrinks-->
 		<div class="col-6 col-md-3">

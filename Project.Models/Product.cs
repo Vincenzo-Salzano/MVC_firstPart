@@ -43,5 +43,8 @@ namespace Project.Models
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
+
+        // Image url property. After inserting this property, remember to add it to the DB context and then migrate and update the DB
+        public string ImageUrl { get; set; }
     }
 }
